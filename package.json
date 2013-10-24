@@ -1,0 +1,20 @@
+{
+	"name":"chao2blog",
+	"version":"0.0.1",
+	"description":"blog system use markdown to write,node to generate html,and serve with nginx",
+	"author":"pei.chao@qq.com",
+	"dependencies":{
+		"markdown":"0.5.x"
+	},
+	"devDependencies":{
+	},
+	"main":"chao2blog",
+	"bin":{
+		"chao2blog":"./bin/chao2blog.js"
+	},
+	"scripts":{
+	},
+	"engines":{
+		"node":"0.10.x"
+	}
+}
