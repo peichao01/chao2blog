@@ -46,7 +46,7 @@ else if(cmdArgs.cmd == 'convert')
 	var date = new Date(),
 		currentYear = date.getFullYear().toString().substr(2,2),
 		currentMonth = date.getMonth() + 1;
-	var walk = require('./scripts/walk.js'),
+	var Walk = require('./scripts/Walk.js'),
 		convertArticle = require('./scripts/convert_article'),
 		Event = require('./scripts/Event'),
 		evt = new Event();
@@ -54,34 +54,29 @@ else if(cmdArgs.cmd == 'convert')
 	//已转换的文件
 	var converted = [],
 		sources = [];
-	walk.config({
+	Walk().config({
 		path: path_dirTarget,
 		isReadFileContent: false
 	}).on('file',function(path){
 		converted.push(path);
-		console.log('target file:' + path);
 	}).on('end', function(){
 		evt.emit('filesReaded');
-		//console.log(converted);
-		console.log('target dir end');
 	}).start();
 
-	/*
-	walk.config({
+	///*
+	Walk().config({
 		path: path_dirSrc,
 		isReadFileContent: false
 	}).on('file',function(path){
 		sources.push(path);
 	}).on('end', function(){
 		evt.emit('filesReaded');
-		//console.log(sources);
-		console.log('source dir end');
 	}).start();
-	*/
+	//*/
 
 	evt.twice('filesReaded', function(){
-		//console.log(converted);
-		//console.log(sources);
+		console.log(converted);
+		console.log(sources);
 	});
 	
 }
